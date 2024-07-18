@@ -7,11 +7,11 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: 'Bungee', cursive;
 
 }
 
 nav .logo {
-  font-family: 'Bungee', cursive;
   font-size: 2em;
 }
 
