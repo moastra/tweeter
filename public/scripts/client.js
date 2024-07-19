@@ -69,28 +69,35 @@ const loadTweets = function() {
   });
 };
 
-renderTweets(data);
-
 $('form').on('submit', function(event) {
   event.preventDefault();
   console.log('Form submission prevented');
 
-
-const serializedData = $(this).serialize();
-
-$.ajax({
-  type: 'POST',
-  url: '/tweets/',
-  data: serializedData,
-  success: function(response) {
-    console.log('Server response: ', response);
-    loadTweets();
-
-  },
-  error: function(error) {
-    console.log('Error: ', error);
+  const tweetText = $('#tweet-text').val().trim();
+  if (!tweetText) {
+    alert('Tweet content cannot be empty!')
+    return;
   }
-});
+  if (tweetText.length > 140) {
+    alert('Tweet content is too long!');
+    return;
+  }
+
+  const serializedData = $(this).serialize();
+
+  $.ajax({
+    type: 'POST',
+    url: '/tweets/',
+    data: serializedData,
+    success: function(response) {
+      console.log('Server response: ', response);
+      loadTweets();
+
+    },
+    error: function(error) {
+      console.log('Error: ', error);
+    }
+  });
 });
 
   loadTweets();
