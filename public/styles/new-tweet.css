@@ -3,6 +3,7 @@
   margin: 20px auto;
   padding: 20px;
   margin-bottom: 85px;
+  height: 300px;
 }
 
 .new-tweet form textarea {
