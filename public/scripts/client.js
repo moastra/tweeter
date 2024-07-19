@@ -52,9 +52,7 @@ return $tweet;
 };
 
 const escape = function(str) {
-  let div = document.createElement("div");
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
+  return $('<div>').text(str).html();
 };
 
 const loadTweets = function() {
@@ -63,7 +61,7 @@ const loadTweets = function() {
     url: '/tweets/',
     success: function(response) {
       console.log('Loaded tweets: ', response);
-      renderTweetsTweets(response);
+      renderTweets(response);
     },
     error: function(error) {
       console.log('Error: ', error);
