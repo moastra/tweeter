@@ -11,9 +11,9 @@ $(document).ready(function() {
     counterElement.text(remainingCharacters);
 
     if (remainingCharacters < 0) {
-      counterElement.addClass('negative');
+      counterElement.addClass('counter-red');
     } else {
-      counterElement.removeClass('negative');
+      counterElement.removeClass('counter-red');
     }
   });
 });

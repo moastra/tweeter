@@ -2,6 +2,7 @@
   text-align: center;
   margin: 20px auto;
   padding: 20px;
+  margin-bottom: 85px;
 }
 
 .new-tweet form textarea {
@@ -51,7 +52,7 @@
   color: #4056a1;
 }
 
-.new-tweet form output.counter.negative {
+.new-tweet form output.counter.counter-red {
   color: red;
 }
 
