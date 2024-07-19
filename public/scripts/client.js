@@ -69,20 +69,27 @@ const loadTweets = function() {
   });
 };
 
+const isTweetValid = function(tweetText) {
+  if (!tweetText) {
+    alert('Tweet content cannot be empty!')
+    return false;
+  }
+  if (tweetText.length > 140) {
+    alert('Tweet content is too long!');
+    return false;
+  }
+  return true;
+}
+
 $('form').on('submit', function(event) {
   event.preventDefault();
   console.log('Form submission prevented');
 
   const tweetText = $('#tweet-text').val().trim();
-  if (!tweetText) {
-    alert('Tweet content cannot be empty!')
+  if(!isTweetValid(tweetText)) {
     return;
   }
-  if (tweetText.length > 140) {
-    alert('Tweet content is too long!');
-    return;
-  }
-
+  
   const serializedData = $(this).serialize();
 
   $.ajax({
