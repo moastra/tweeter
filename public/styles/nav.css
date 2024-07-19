@@ -1,3 +1,8 @@
+header {
+  position: relative;
+  z-index: 1;
+}
+
 nav {
   height: 120px;
   width: 100vw;
@@ -13,6 +18,7 @@ nav {
   left: 0;
   z-index: 1000;
 }
+
 
 nav .logo {
   font-size: 2em;

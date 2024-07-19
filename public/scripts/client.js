@@ -18,8 +18,9 @@ const renderTweets = function(tweets) {
 
 const createTweetElement = function(tweet) {
   const timeAgo = timeago.format(tweet.created_at);
+  console.log('Hello!');
 
-  const $tweet = $(`
+  const newTweet = $(`
     <article class="tweet">
     <header>
       <div class="avatar">
@@ -48,7 +49,9 @@ const createTweetElement = function(tweet) {
   </article>
 `
   );
-return $tweet;
+console.log('Please work', newTweet);
+
+return newTweet;
 };
 
 const escape = function(str) {
@@ -85,11 +88,11 @@ $('form').on('submit', function(event) {
   event.preventDefault();
   console.log('Form submission prevented');
 
-  const tweetText = $('#tweet-text').val().trim();
+  const tweetText = $('#tweet').val().trim();
   if(!isTweetValid(tweetText)) {
     return;
   }
-  
+
   const serializedData = $(this).serialize();
 
   $.ajax({
@@ -99,6 +102,8 @@ $('form').on('submit', function(event) {
     success: function(response) {
       console.log('Server response: ', response);
       loadTweets();
+      $('textarea').val('');
+      $('.counter').text('140');
 
     },
     error: function(error) {
@@ -108,4 +113,16 @@ $('form').on('submit', function(event) {
 });
 
   loadTweets();
+
+  $(window).on('scroll', function() {
+    const headerHeight = $('header').outerHeight();
+    const offset = 50;
+    const stopPoint = headerHeight + offset;
+  
+    if ($(window).scrollTop() > stopPoint) {
+      $('nav').css('position', 'absolute').css('top', stopPoint + 'px');
+    } else {
+      $('nav').css('position', 'fixed').css('top', '0');
+    }
+  });
 });
