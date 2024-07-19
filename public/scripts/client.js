@@ -6,30 +6,6 @@
 
 
 $(document).ready(function() {
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
 
 const renderTweets = function(tweets) {
   $('#tweet-container').empty();
@@ -75,6 +51,49 @@ const createTweetElement = function(tweet) {
 return $tweet;
 };
 
+const escape = function(str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
+const loadTweets = function() {
+  $.ajax({
+    type: 'GET',
+    url: '/tweets/',
+    success: function(response) {
+      console.log('Loaded tweets: ', response);
+      renderTweetsTweets(response);
+    },
+    error: function(error) {
+      console.log('Error: ', error);
+    }
+  });
+};
+
 renderTweets(data);
 
+$('form').on('submit', function(event) {
+  event.preventDefault();
+  console.log('Form submission prevented');
+
+
+const serializedData = $(this).serialize();
+
+$.ajax({
+  type: 'POST',
+  url: '/tweets/',
+  data: serializedData,
+  success: function(response) {
+    console.log('Server response: ', response);
+    loadTweets();
+
+  },
+  error: function(error) {
+    console.log('Error: ', error);
+  }
+});
+});
+
+  loadTweets();
 });
