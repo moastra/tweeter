@@ -51,11 +51,8 @@
   color: #4056a1;
 }
 
-.new-tweet label {
-  float: left;
-  align-content: baseline;
-  font-weight: bold;
-  font-size: 1.5em;
+.new-tweet form output.counter.negative {
+  color: red;
 }
 
 .new-tweet label {
