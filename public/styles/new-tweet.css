@@ -1,0 +1,59 @@
+.new-tweet{
+  text-align: center;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.new-tweet form textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  resize: none;
+  font-family: "Source Sans 3", sans-serif;
+  justify-content: baseline;
+  border-bottom: 5px solid #4056a1;
+  background-color: #f4f1ec;
+  overflow-y: hidden;
+}
+
+.new-tweet form textarea:focus {
+  outline: none; 
+  border-bottom: 5px solid #4056a1; 
+}
+
+
+.new-tweet form textarea::placeholder {
+  font-size: 1.5em;
+  font-weight: bold;
+
+}
+
+.new-tweet form button {
+  float: left;
+  background-color: #4056a1;
+  color: #fff;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Bungee', sans-serif;
+  font-size: 1em;
+}
+
+.new-tweet form output.counter{
+  float: right;
+  margin-right: 15px;
+  font-size: 35px;
+  font-family: 'Bungee', sans-serif;
+  color: #4056a1;
+}
+
+.new-tweet label {
+  float: left;
+  align-content: baseline;
+  font-weight: bold;
+  font-size: 1.5em;
+}
