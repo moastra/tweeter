@@ -74,19 +74,34 @@ const loadTweets = function() {
 
 const isTweetValid = function(tweetText) {
   if (!tweetText) {
-    alert('Tweet content cannot be empty!')
+    showError('Tweet content cannot be empty!')
     return false;
   }
   if (tweetText.length > 140) {
-    alert('Tweet content is too long!');
+    showError('Tweet content is too long!');
     return false;
   }
   return true;
-}
+};
+
+const showError = function(message) {
+  $('.error-message p').text(message);
+  $('.error-message').slideDown();
+
+  setTimeout(function() {
+    $('.error-message').slideUp();    
+  }, 3000);
+};
+
+const hideError = function(message) {
+  $('.error-message').slideUp()
+};
 
 $('form').on('submit', function(event) {
   event.preventDefault();
   console.log('Form submission prevented');
+
+  hideError();
 
   const tweetText = $('#tweet').val().trim();
   if(!isTweetValid(tweetText)) {
