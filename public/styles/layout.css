@@ -54,3 +54,38 @@ main {
   margin: 0 auto;
   background-color: inherit;
 }
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile */
+
+
+/* Tablet */
+@media only screen and (max-width: 1023px){
+  body {
+    padding-top: 80px;
+  }
+
+}
+
+
+/* Desktop */
+@media only screen and (min-width: 1024px) {
+  .layout-container {
+    flex-direction: row;
+    margin: 60px;
+    margin-top: 80px; 
+    
+  }
+
+  .container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    margin-left: 300px 
+
+  }
+}

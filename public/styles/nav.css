@@ -44,3 +44,50 @@ nav .fa-angles-down {
   color:#c8d5ff;
   font-weight: bold;
 }
+
+
+/* Mobile */
+@media only screen and (max-width: 1023.9999999px){
+  nav {
+    background-color: #6689FE;
+    background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+    height: 80px;
+  }
+  
+  nav .logo {
+    font-size: 1.3em;
+    content: 'Tweeter';
+  }
+  
+  }
+  
+  nav .fa-angles-down {
+    color: #222D54;
+    font-size: 0.9em;
+
+}
+
+
+/* Desktop */
+@media only screen and (min-width: 1024px) {
+  nav {
+    height: 80px
+  }
+  
+  nav .logo {
+    font-size: 1.25em;
+  }
+  
+  nav .write-container {
+    margin-right: 40px;
+  }
+  
+  nav .write {
+    font-size: 0.9em;
+  }
+  
+  nav .fa-angles-down {
+  font-size: 0.7em;
+}
+
+}

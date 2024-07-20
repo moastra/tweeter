@@ -129,9 +129,23 @@ $('form').on('submit', function(event) {
 
   loadTweets();
 
+  function updateLogoText() {
+    if ($(window).width() <= 1024) {
+      $('.logo').text('Tweeter');
+    } else {
+      $('.logo').text('Tweeter, the Real Twitter');
+    }
+  }
+
+  updateLogoText();
+
+  $(window).resize(function() {
+    updateLogoText();
+  });
+
   $(window).on('scroll', function() {
     const headerHeight = $('header').outerHeight();
-    const offset = 50;
+    const offset = 0;
     const stopPoint = headerHeight + offset;
   
     if ($(window).scrollTop() > stopPoint) {
