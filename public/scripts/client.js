@@ -7,20 +7,20 @@
 
 $(document).ready(function() {
 
-const renderTweets = function(tweets) {
-  $('#tweet-container').empty();
+  const renderTweets = function(tweets) {
+    $('#tweet-container').empty();
 
-  tweets.forEach(tweet => {
-    const $tweet = createTweetElement(tweet);
-    $('#tweet-container').prepend($tweet);
-  });
-};
+    tweets.forEach(tweet => {
+      const $tweet = createTweetElement(tweet);
+      $('#tweet-container').prepend($tweet);
+    });
+  };
 
-const createTweetElement = function(tweet) {
-  const timeAgo = timeago.format(tweet.created_at);
-  console.log('Hello!');
+  const createTweetElement = function(tweet) {
+    const timeAgo = timeago.format(tweet.created_at);
+    console.log('Hello!');
 
-  const newTweet = $(`
+    const newTweet = $(`
     <article class="tweet">
     <header>
       <div class="avatar">
@@ -48,84 +48,84 @@ const createTweetElement = function(tweet) {
     </footer>
   </article>
 `
-  );
-console.log('Please work', newTweet);
+    );
+    console.log('Please work', newTweet);
 
-return newTweet;
-};
+    return newTweet;
+  };
 
-const escape = function(str) {
-  return $('<div>').text(str).html();
-};
+  const escape = function(str) {
+    return $('<div>').text(str).html();
+  };
 
-const loadTweets = function() {
-  $.ajax({
-    type: 'GET',
-    url: '/tweets/',
-    success: function(response) {
-      console.log('Loaded tweets: ', response);
-      renderTweets(response);
-    },
-    error: function(error) {
-      console.log('Error: ', error);
+  const loadTweets = function() {
+    $.ajax({
+      type: 'GET',
+      url: '/tweets/',
+      success: function(response) {
+        console.log('Loaded tweets: ', response);
+        renderTweets(response);
+      },
+      error: function(error) {
+        console.log('Error: ', error);
+      }
+    });
+  };
+
+  const isTweetValid = function(tweetText) {
+    if (!tweetText) {
+      showError('Tweet content cannot be empty!');
+      return false;
     }
-  });
-};
-
-const isTweetValid = function(tweetText) {
-  if (!tweetText) {
-    showError('Tweet content cannot be empty!')
-    return false;
-  }
-  if (tweetText.length > 140) {
-    showError('Tweet content is too long!');
-    return false;
-  }
-  return true;
-};
-
-const showError = function(message) {
-  $('.error-message p').text(message);
-  $('.error-message').slideDown();
-
-  setTimeout(function() {
-    $('.error-message').slideUp();    
-  }, 3000);
-};
-
-const hideError = function(message) {
-  $('.error-message').slideUp()
-};
-
-$('form').on('submit', function(event) {
-  event.preventDefault();
-  console.log('Form submission prevented');
-
-  hideError();
-
-  const tweetText = $('#tweet').val().trim();
-  if(!isTweetValid(tweetText)) {
-    return;
-  }
-
-  const serializedData = $(this).serialize();
-
-  $.ajax({
-    type: 'POST',
-    url: '/tweets/',
-    data: serializedData,
-    success: function(response) {
-      console.log('Server response: ', response);
-      loadTweets();
-      $('textarea').val('');
-      $('.counter').text('140');
-
-    },
-    error: function(error) {
-      console.log('Error: ', error);
+    if (tweetText.length > 140) {
+      showError('Tweet content is too long!');
+      return false;
     }
+    return true;
+  };
+
+  const showError = function(message) {
+    $('.error-message p').text(message);
+    $('.error-message').slideDown();
+
+    setTimeout(function() {
+      $('.error-message').slideUp();
+    }, 3000);
+  };
+
+  const hideError = function(message) {
+    $('.error-message').slideUp();
+  };
+
+  $('form').on('submit', function(event) {
+    event.preventDefault();
+    console.log('Form submission prevented');
+
+    hideError();
+
+    const tweetText = $('#tweet').val().trim();
+    if (!isTweetValid(tweetText)) {
+      return;
+    }
+
+    const serializedData = $(this).serialize();
+
+    $.ajax({
+      type: 'POST',
+      url: '/tweets/',
+      data: serializedData,
+      success: function(response) {
+        console.log('Server response: ', response);
+        loadTweets();
+        $('textarea').val('');
+        $('.counter').text('140');
+
+      },
+      error: function(error) {
+        console.log('Error: ', error);
+      }
+    });
   });
-});
 
   loadTweets();
 
