@@ -14,10 +14,10 @@ Tweeter is a simple, single-page Twitter clone built with HTML, CSS, JavaScript,
 ## Final Product
 
 #### Compose Tweet Section
-!["Screenshot of the Compose Tweet Section (Mobile)"](https://github.com/yourusername/tweeter/blob/main/docs/compose-tweet.png?raw=true)
+!["Screenshot of the Compose Tweet Section (Mobile)"](https://github.com/moastra/tweeter/blob/master/docs/mobile.png?raw=true)
 
 #### Tweets Feed
-!["Screenshot of the Tweets Feed (Desktop)"](https://github.com/yourusername/tweeter/blob/main/docs/tweets-feed.png?raw=true)
+!["Screenshot of the Tweets Feed (Desktop)"](https://github.com/moastra/tweeter/blob/master/docs/desktop.png?raw=true)
 
 ## Dependencies
 
