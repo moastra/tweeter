@@ -1,18 +1,50 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a simple, single-page Twitter clone built with HTML, CSS, JavaScript, jQuery, and AJAX. This web application allows users to compose tweets and view a feed of tweets.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express back-end skills.
+## Features
 
-## Getting Started
+ - User can compose a new tweet.
+ - Tweets are displayed in reverse-chronological order.
+ - Character counter updates as the user types.
+ - Error messages are displayed for empty tweets or tweets that exceed the character limit.
+ - Responsive design for different screen sizes (mobile, tablet, desktop).
+ - Animated scroll and interactive elements.
 
-1. [Create](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) a new repository using this repository as a template.
-2. Clone your repository onto your local device.
-3. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
+## Final Product
+
+#### Compose Tweet Section
+!["Screenshot of the Compose Tweet Section (Mobile)"](https://github.com/yourusername/tweeter/blob/main/docs/compose-tweet.png?raw=true)
+
+#### Tweets Feed
+!["Screenshot of the Tweets Feed (Desktop)"](https://github.com/yourusername/tweeter/blob/main/docs/tweets-feed.png?raw=true)
 
 ## Dependencies
 
-- Express
-- Node 5.10.x or above
+ - jQuery
+ - timeago.js
+ - normalize.css
+ - font-awesome
+ - Express
+ - Node 5.10.x or above
+
+## Getting Started
+
+- Clone the repository: `git clone https://github.com/yourusername/tweeter.git`
+- Install dependencies: `npm install`
+- Start the web server: `npm start`
+- Open your browser and navigate to [http://localhost:8080](http://localhost:8080)
+
+## Usage
+
+ - Compose a new tweet in the textarea and click the "Tweet" button.
+ - View your tweet displayed in the feed.
+ - The character counter updates as you type, and an error message is shown if the tweet is empty or exceeds the character limit.
+ - The "Write a new tweet" icon animates, providing a visual cue.
+ - The navbar is fixed at the top and changes based on the screen size.
+
+## Responsive Design
+
+ - The layout adjusts based on the screen size (Mobile or Desktop), providing an optimal viewing experience on mobile and desktop devices.
+ - On tablets, the "Tweeter, the Real Twitter" text changes to "Tweeter" for better readability.
+ - The "fa-angles-down" icon animates up and down to provide a visual cue for users.

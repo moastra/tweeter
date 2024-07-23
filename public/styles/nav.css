@@ -1,3 +1,13 @@
+@keyframes upDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+
 header {
   position: relative;
   z-index: 1;
@@ -43,7 +53,10 @@ nav .fa-angles-down {
   font-size: 1em;
   color:#c8d5ff;
   font-weight: bold;
+  animation: upDown 2s infinite;
+  
 }
+
 
 
 /* Mobile */
@@ -64,6 +77,7 @@ nav .fa-angles-down {
   nav .fa-angles-down {
     color: #222D54;
     font-size: 0.9em;
+
 
 }
 
@@ -87,7 +101,7 @@ nav .fa-angles-down {
   }
   
   nav .fa-angles-down {
-  font-size: 0.7em;
+    font-size: 0.7em;
 }
 
 }
